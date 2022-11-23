@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Deluxe Beam</string>
+    <string name="app_name__">© Deluxe Beam</string>
+
+    <string name="take_image">Choose Image</string>
+
+
+    <string name="facebook_app_id">855233589225730</string>
+    <string name="fb_login_protocol_scheme">fb855233589225730</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

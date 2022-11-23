@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navanava"
+    app:startDestination="@id/oneFragment">
+
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.gamegou.footballs.OneFragment"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one" >
+        <action
+            android:id="@+id/action_oneFragment_to_secSecFragment"
+            app:destination="@id/secSecFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secSecFragment"
+        android:name="com.gamegou.footballs.SecSecFragment"
+        android:label="fragment_sec_sec"
+        tools:layout="@layout/fragment_sec_sec" />
+</navigation>
