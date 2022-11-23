@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigatorInterface {
 
     lateinit var ffofofo: ActivityMainBinding
 
@@ -94,12 +94,10 @@ class MainActivity : AppCompatActivity() {
 
                     if (naming!!.contains("tdb2") || gtgtgtgt.contains(gthy) || ggttgtg!!.contains("tdb2")) {
                         executorService.shutdown()
-                        startActivity(Intent(this@MainActivity, VebBrovserActivity::class.java))
-                        finish()
+                        goToVeb()
                     } else {
                         executorService.shutdown()
-                        startActivity(Intent(this@MainActivity, StartGameeeeActivity::class.java))
-                        finish()
+                        goToGame()
                     }
                 } else {
                     naming = Hawk.get(C1ftgtgttg)
@@ -107,11 +105,10 @@ class MainActivity : AppCompatActivity() {
 
             }, 0, 2, TimeUnit.SECONDS)
         } else if (gtgtgtgt.contains(gthy)) {
-            startActivity(Intent(this@MainActivity, VebBrovserActivity::class.java))
-            finish()
+            goToVeb()
+
         } else {
-            startActivity(Intent(this@MainActivity, StartGameeeeActivity::class.java))
-            finish()
+            goToGame()
         }
     }
 
@@ -145,6 +142,16 @@ class MainActivity : AppCompatActivity() {
 
         override fun onAttributionFailure(p0: String?) {
         }
+    }
+
+    override fun goToGame() {
+        startActivity(Intent(this@MainActivity, StartGameeeeActivity::class.java))
+        finish()
+    }
+
+    override fun goToVeb() {
+        startActivity(Intent(this@MainActivity, VebBrovserActivity::class.java))
+        finish()
     }
 
 
