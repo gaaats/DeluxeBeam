@@ -5,55 +5,64 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.gamegou.footballs.databinding.FragmentSecSecBinding
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SecSecFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SecSecFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var rffr: FragmentSecSecBinding? = null
+    private val hyhyy get() = rffr ?: throw RuntimeException("FragmentSecSecBinding = null")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sec_sec, container, false)
+    ): View {
+        rffr = FragmentSecSecBinding.inflate(inflater, container, false)
+        return hyhyy.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SecSecFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SecSecFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        try {
+
+            lifecycleScope.launchWhenCreated {
+                delay(1500)
+                findNavController().navigate(R.id.action_secSecFragment_to_oneFragment)
             }
+
+
+        } catch (e: Exception) {
+            gtttgtt()
+        }
+
+
+        super.onViewCreated(view, savedInstanceState)
     }
+
+    override fun onPause() {
+        onDestroy()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        rffr = null
+        super.onDestroy()
+    }
+
+
+
+
+    private fun gtttgtt() {
+        Snackbar.make(
+            hyhyy.root,
+            "Some error...",
+            Snackbar.LENGTH_LONG
+        ).show()
+        requireActivity().onBackPressed()
+    }
+
+
+
+
 }

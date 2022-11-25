@@ -8,12 +8,13 @@ class SingleMainClass: Application() {
 
 
     companion object {
-        const val dedeedeeedgtgt = "40e0fb21-186e-4f32-ae62-73f7253021bc"
-        var appsCheckfrfrrf55 = "appsChecker"
-        var MAIN_IDdrfrrf8: String? = ""
-        var DEEPLfrfrrf55fg: String? = "d11"
-        var C1ftgtgttg: String? = "c11"
         var linkfrfrrf = "link"
+        const val jpjpjpj = "40e0fb21-186e-4f32-ae62-73f7253021bc"
+        var appsCheckfrfrrf55ggtgt = "appsChecker"
+        var MAIN_IDdrfrrf8ftgt: String? = ""
+        var DEEPLfrfrrf55fggtghy: String? = "d11"
+        var C1ftgtgttggtgtg: String? = "c11"
+
 
     }
 
@@ -22,7 +23,7 @@ class SingleMainClass: Application() {
 
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
         OneSignal.initWithContext(this)
-        OneSignal.setAppId(dedeedeeedgtgt)
+        OneSignal.setAppId(jpjpjpj)
 
         Hawk.init(this).build()
 

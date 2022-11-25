@@ -7,12 +7,13 @@ import android.net.Uri
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.provider.MediaStore
+import android.util.Log
 import android.webkit.*
 import android.widget.Toast
 import com.appsflyer.AppsFlyerLib
-import com.gamegou.footballs.SingleMainClass.Companion.C1ftgtgttg
-import com.gamegou.footballs.SingleMainClass.Companion.DEEPLfrfrrf55fg
-import com.gamegou.footballs.SingleMainClass.Companion.MAIN_IDdrfrrf8
+import com.gamegou.footballs.SingleMainClass.Companion.C1ftgtgttggtgtg
+import com.gamegou.footballs.SingleMainClass.Companion.DEEPLfrfrrf55fggtghy
+import com.gamegou.footballs.SingleMainClass.Companion.MAIN_IDdrfrrf8ftgt
 import com.gamegou.footballs.SingleMainClass.Companion.linkfrfrrf
 import com.gamegou.footballs.databinding.ActivityVebBrovserBinding
 import com.google.android.material.snackbar.Snackbar
@@ -24,29 +25,29 @@ import java.io.File
 import java.io.IOException
 
 class VebBrovserActivity : AppCompatActivity() {
-    private val frfrftgt = 1
+    private val frfrftgtfrgtt = 1
     var gthy: String? = null
-    var jifrgtgt: ValueCallback<Array<Uri>>? = null
+    var jifrgtgtfgtt: ValueCallback<Array<Uri>>? = null
 
     lateinit var jikiik: WebView
-    lateinit var hhyyyhyhy: ActivityVebBrovserBinding
+    lateinit var hhyyyhyhyfrgt: ActivityVebBrovserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hhyyyhyhy = ActivityVebBrovserBinding.inflate(layoutInflater)
-        setContentView(hhyyyhyhy.root)
+        hhyyyhyhyfrgt = ActivityVebBrovserBinding.inflate(layoutInflater)
+        setContentView(hhyyyhyhyfrgt.root)
 
-        jikiik = hhyyyhyhy.viviviviiveeee
+        jikiik = hhyyyhyhyfrgt.viviviviiveeee
         Snackbar.make(
-            hhyyyhyhy.root, "Loading...",
+            hhyyyhyhyfrgt.root, "Loading...",
             Snackbar.LENGTH_LONG
         ).show()
 
 
-        val frfrffrrf = CookieManager.getInstance()
-        frfrffrrf.setAcceptCookie(true)
-        frfrffrrf.setAcceptThirdPartyCookies(jikiik, true)
-        koka()
+        val ftrgtgtt = CookieManager.getInstance()
+        ftrgtgtt.setAcceptCookie(true)
+        ftrgtgtt.setAcceptThirdPartyCookies(jikiik, true)
+        jojojoj()
         val tgtgtgttgtgt: Activity = this
         jikiik.webViewClient = object : WebViewClient() {
 
@@ -104,39 +105,39 @@ class VebBrovserActivity : AppCompatActivity() {
                 webView: WebView, filePathCallback: ValueCallback<Array<Uri>>,
                 fileChooserParams: FileChooserParams
             ): Boolean {
-                jifrgtgt?.onReceiveValue(null)
-                jifrgtgt = filePathCallback
-                var frgttakePictureIntent: Intent? = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                if (frgttakePictureIntent!!.resolveActivity(packageManager) != null) {
+                jifrgtgtfgtt?.onReceiveValue(null)
+                jifrgtgtfgtt = filePathCallback
+                var frfrfrr: Intent? = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                if (frfrfrr!!.resolveActivity(packageManager) != null) {
 
                     var photoFiledefrfr: File? = null
                     try {
                         photoFiledefrfr = gtjigtjgjit()
-                        frgttakePictureIntent.putExtra("PhotoPath", gthy)
+                        frfrfrr.putExtra("PhotoPath", gthy)
                     } catch (ex: IOException) {
                     }
 
                     if (photoFiledefrfr != null) {
                         gthy = "file:" + photoFiledefrfr.absolutePath
-                        frgttakePictureIntent.putExtra(
+                        frfrfrr.putExtra(
                             MediaStore.EXTRA_OUTPUT,
                             Uri.fromFile(photoFiledefrfr)
                         )
                     } else {
-                        frgttakePictureIntent = null
+                        frfrfrr = null
                     }
                 }
-                val fhrhfhrhrf = Intent(Intent.ACTION_GET_CONTENT)
-                fhrhfhrhrf.addCategory(Intent.CATEGORY_OPENABLE)
-                fhrhfhrhrf.type = "image/*"
+                val popa = Intent(Intent.ACTION_GET_CONTENT)
+                popa.addCategory(Intent.CATEGORY_OPENABLE)
+                popa.type = "image/*"
                 val fuhrhfrhufr: Array<Intent?> =
-                    frgttakePictureIntent?.let { arrayOf(it) } ?: arrayOfNulls(0)
+                    frfrfrr?.let { arrayOf(it) } ?: arrayOfNulls(0)
                 val lpllp = Intent(Intent.ACTION_CHOOSER)
-                lpllp.putExtra(Intent.EXTRA_INTENT, fhrhfhrhrf)
+                lpllp.putExtra(Intent.EXTRA_INTENT, popa)
                 lpllp.putExtra(Intent.EXTRA_TITLE, getString(R.string.take_image))
                 lpllp.putExtra(Intent.EXTRA_INITIAL_INTENTS, fuhrhfrhufr)
                 startActivityForResult(
-                    lpllp, frfrftgt
+                    lpllp, frfrftgtfrgtt
                 )
                 return true
             }
@@ -158,11 +159,11 @@ class VebBrovserActivity : AppCompatActivity() {
 
         }
 
-        jikiik.loadUrl(gtjtjgjj())
+        jikiik.loadUrl(opopop())
     }
 
 
-    private fun popop(string: String) {
+    private fun eva(string: String) {
         OneSignal.setExternalUserId(
             string,
             object : OneSignal.OSExternalUserIdUpdateCompletionHandler {
@@ -212,26 +213,9 @@ class VebBrovserActivity : AppCompatActivity() {
             })
     }
 
-    override fun onBackPressed() {
 
 
-        if (jikiik.canGoBack()) {
-            if (gtigjtj) {
-                jikiik.stopLoading()
-                jikiik.loadUrl(huyhkyhyk)
-            }
-            this.gtigjtj = true
-            jikiik.goBack()
-            Handler(Looper.getMainLooper()).postDelayed(Runnable {
-                gtigjtj = false
-            }, 2000)
-
-        } else {
-            super.onBackPressed()
-        }
-    }
-
-    private fun koka() {
+    private fun jojojoj() {
         val boka = jikiik.settings
         boka.javaScriptEnabled = true
 
@@ -256,15 +240,34 @@ class VebBrovserActivity : AppCompatActivity() {
         boka.allowContentAccess = true
     }
 
-    private fun gtjtjgjj(): String {
+    override fun onBackPressed() {
+
+
+        if (jikiik.canGoBack()) {
+            if (gtigjtj) {
+                jikiik.stopLoading()
+                jikiik.loadUrl(huyhkyhyk)
+            }
+            this.gtigjtj = true
+            jikiik.goBack()
+            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                gtigjtj = false
+            }, 2000)
+
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun opopop(): String {
 
         val gtkkgtk = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
 
         val monkey = "com.gamegou.footballs"
 
-        val donkey:String? = Hawk.get(C1ftgtgttg, "null")
-        val koko: String? = Hawk.get(MAIN_IDdrfrrf8, "null")
-        val kokok: String? = Hawk.get(DEEPLfrfrrf55fg, "null")
+        val frrrrrr:String? = Hawk.get(C1ftgtgttggtgtg, "null")
+        val rfrfr: String? = Hawk.get(MAIN_IDdrfrrf8ftgt, "null")
+        val kokok: String? = Hawk.get(DEEPLfrfrrf55fggtghy, "null")
 
         val jgijtjtj = AppsFlyerLib.getInstance().getAppsFlyerUID(this)
 
@@ -293,13 +296,14 @@ class VebBrovserActivity : AppCompatActivity() {
         val linkAB = Hawk.get(linkfrfrrf, "null")
 
         var fjrfjrfrfrf = ""
-        if (donkey != "null"){
-            fjrfjrfrfrf = "$linkAB$fokgttg$donkey&$frfrfr$jgijtjtj&$adidfrrf$koko&$sub4frfrfr$monkey&$goktk$gktkt&$sub6frrf$gttjjgtt"
-            popop(jgijtjtj.toString())
+        if (frrrrrr != "null"){
+            fjrfjrfrfrf = "$linkAB$fokgttg$frrrrrr&$frfrfr$jgijtjtj&$adidfrrf$rfrfr&$sub4frfrfr$monkey&$goktk$gktkt&$sub6frrf$gttjjgtt"
+            eva(jgijtjtj.toString())
         } else {
-            fjrfjrfrfrf = "$linkAB$fokgttg$kokok&$frfrfr$jgijtjtj&$adidfrrf$koko&$sub4frfrfr$monkey&$goktk$gktkt&$sub6frrf$ftgt"
-            popop(jgijtjtj.toString())
+            fjrfjrfrfrf = "$linkAB$fokgttg$kokok&$frfrfr$jgijtjtj&$adidfrrf$rfrfr&$sub4frfrfr$monkey&$goktk$gktkt&$sub6frrf$ftgt"
+            eva(jgijtjtj.toString())
         }
+        Log.d("lolo", "res is $fjrfjrfrfrf")
 
         return gtkkgtk.getString("SAVED_URL", fjrfjrfrfrf).toString()
     }
@@ -321,7 +325,7 @@ class VebBrovserActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode != frfrftgt || jifrgtgt == null) {
+        if (requestCode != frfrftgtfrgtt || jifrgtgtfgtt == null) {
             super.onActivityResult(requestCode, resultCode, data)
             return
         }
@@ -337,8 +341,8 @@ class VebBrovserActivity : AppCompatActivity() {
                 }
             }
         }
-        jifrgtgt?.onReceiveValue(results)
-        jifrgtgt = null
+        jifrgtgtfgtt?.onReceiveValue(results)
+        jifrgtgtfgtt = null
     }
 
     fun lkpikliliklilpk(lurlurlurlurlur: String?) {

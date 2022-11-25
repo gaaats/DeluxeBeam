@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navanava"
-    app:startDestination="@id/oneFragment">
+    app:startDestination="@id/enteeeringFragment">
 
     <fragment
         android:id="@+id/oneFragment"
@@ -12,11 +12,26 @@
         tools:layout="@layout/fragment_one" >
         <action
             android:id="@+id/action_oneFragment_to_secSecFragment"
-            app:destination="@id/secSecFragment" />
+            app:destination="@id/secSecFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/secSecFragment"
         android:name="com.gamegou.footballs.SecSecFragment"
         android:label="fragment_sec_sec"
-        tools:layout="@layout/fragment_sec_sec" />
+        tools:layout="@layout/fragment_sec_sec" >
+        <action
+            android:id="@+id/action_secSecFragment_to_oneFragment"
+            app:destination="@id/oneFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/enteeeringFragment"
+        android:name="com.gamegou.footballs.EnteeeringFragment"
+        android:label="fragment_enteeering"
+        tools:layout="@layout/fragment_enteeering" >
+        <action
+            android:id="@+id/action_enteeeringFragment_to_oneFragment"
+            app:destination="@id/oneFragment" />
+    </fragment>
 </navigation>
